@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan({"com.control"})
+@ComponentScan("com.control")
 public class StudentMain {
     
     public static void main(String[] args) {
