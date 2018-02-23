@@ -33,7 +33,7 @@
 		<artifactId>spring-boot-dependencies</artifactId> <version>1.5.4.RELEASE</version> 
 		<type>pom</type> <scope>import</scope> </dependency> </dependencies> </dependencyManagement> -->
 	<modules>
-		<module>Chapter001-QuickStart</module>
 		<module>SpringBoot001-QuickStart</module>
+		<module>SpringBoot002-MVC</module>
 	</modules>
 </project>

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.properties.Admin;
 import com.properties.Author;
 
 /**
@@ -26,13 +27,21 @@ public class PropertiesMain {
     @Autowired
     private Author author;
     
+    @Autowired
+    private Admin admin;
+    
     public static void main(String[] args) {
 	SpringApplication.run(PropertiesMain.class, args);
     }
     
     @RequestMapping("/")
-    public Author excute() {
+    public Author author() {
 	return author;
+    }
+    
+    @RequestMapping("/admin")
+    public Admin admin() {
+	return admin;
     }
 
 }
