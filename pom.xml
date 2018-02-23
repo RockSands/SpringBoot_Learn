@@ -4,7 +4,7 @@
 	<groupId>SpringBoot_Learn</groupId>
 	<artifactId>SpringBoot_Learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<encoding>UTF-8</encoding>
@@ -32,4 +32,8 @@
 	<!-- <dependencyManagement> <dependencies> <dependency> <groupId>org.springframework.boot</groupId> 
 		<artifactId>spring-boot-dependencies</artifactId> <version>1.5.4.RELEASE</version> 
 		<type>pom</type> <scope>import</scope> </dependency> </dependencies> </dependencyManagement> -->
+	<modules>
+		<module>Chapter001-QuickStart</module>
+		<module>SpringBoot001-QuickStart</module>
+	</modules>
 </project>
