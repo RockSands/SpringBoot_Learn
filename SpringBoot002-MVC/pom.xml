@@ -26,6 +26,17 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!-- RestFul API -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.swagger.version}</version>
+		</dependency>
 	</dependencies>
 	<!-- 使用SpringBoot的Maven插件构建 -->
 	<build>
