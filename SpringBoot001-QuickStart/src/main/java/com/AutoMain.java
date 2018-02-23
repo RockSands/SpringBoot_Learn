@@ -8,31 +8,28 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.properties.Author;
+import com.auto.SayHi;
 
 /**
- * 配置文件测试
+ * 自动加载测试
+ * 通过/resources/META_INFO/spring.factories,配置Spring自动读取类,并通过@Conditional相关注释达到条件自动加载
  * @author Administrator
  *
  */
 @RestController
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan("com.properties")
-public class PropertiesMain {
-    /**
-     * 自动绑定,author是读取配置文件读出的数据
-     */
+@ComponentScan({"com.properties.Author","com.auto"})
+public class AutoMain {
     @Autowired
-    private Author author;
+    private SayHi sayHi;
     
     public static void main(String[] args) {
-	SpringApplication.run(PropertiesMain.class, args);
+	SpringApplication.run(AutoMain.class, args);
     }
     
     @RequestMapping("/")
-    public Author excute() {
-	return author;
+    public String excute() {
+	return sayHi.sayHi();
     }
-
 }
