@@ -8,32 +8,18 @@
 		<artifactId>SpringBoot_Learn</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>SpringBoot002-MVC</artifactId>
-	<name>SpringBoot002-MVC</name>
+	<artifactId>SpringBoot003-JDBC</artifactId>
+	<name>SpringBoot003-JDBC</name>
 	<url>http://maven.apache.org</url>
-
 	<dependencies>
-		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
-		<!-- Spring 配置 -->
+		<!-- Mysql -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<!-- RestFul API -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>${springfox.swagger.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>${springfox.swagger.version}</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 	</dependencies>
 	<!-- 使用SpringBoot的Maven插件构建 -->

@@ -36,5 +36,6 @@
 	<modules>
 		<module>SpringBoot001-QuickStart</module>
 		<module>SpringBoot002-MVC</module>
+		<module>SpringBoot003-JDBC</module>
 	</modules>
 </project>
