@@ -4,6 +4,11 @@ server:
   # 访问的基础路径
   context-path: /
 spring:
+  jpa:
+    hibernate:
+      naming:
+        # 解决名称编译问题
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   datasource:
     # 主数据库配置
     primary: 

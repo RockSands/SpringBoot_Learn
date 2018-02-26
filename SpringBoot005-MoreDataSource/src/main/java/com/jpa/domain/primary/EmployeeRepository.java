@@ -1,4 +1,4 @@
-package com.jpa.domain;
+package com.jpa.domain.primary;
 
 import java.util.List;
 
