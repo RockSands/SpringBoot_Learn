@@ -38,5 +38,6 @@
 		<module>SpringBoot002-MVC</module>
 		<module>SpringBoot003-JDBC</module>
 		<module>SpringBoot004-JPA</module>
+		<module>SpringBoot005-MoreDataSource</module>
 	</modules>
 </project>
