@@ -3,3 +3,6 @@ server:
   port: 8080
   # 访问的基础路径
   context-path: /
+logging:
+  config: classpath:logback.xml
+    
