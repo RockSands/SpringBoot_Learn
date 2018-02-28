@@ -1,4 +1,4 @@
-package com.control;
+package com.domain;
 
 public class Student {
 
