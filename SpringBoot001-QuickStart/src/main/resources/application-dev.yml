@@ -4,5 +4,5 @@ server:
   # 访问的基础路径
   context-path: /
 logging:
-  config: classpath:logback.xml
+  config: classpath:logback-spring.xml
     

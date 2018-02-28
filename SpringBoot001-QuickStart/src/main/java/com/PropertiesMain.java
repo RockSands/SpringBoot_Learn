@@ -13,6 +13,7 @@ import com.properties.Author;
 
 /**
  * 配置文件测试
+ * 
  * @author Administrator
  *
  */
@@ -21,27 +22,27 @@ import com.properties.Author;
 @EnableAutoConfiguration
 @ComponentScan("com.properties")
 public class PropertiesMain {
-    /**
-     * 自动绑定,author是读取配置文件读出的数据
-     */
-    @Autowired
-    private Author author;
-    
-    @Autowired
-    private Admin admin;
-    
-    public static void main(String[] args) {
-	SpringApplication.run(PropertiesMain.class, args);
-    }
-    
-    @RequestMapping("/")
-    public Author author() {
-	return author;
-    }
-    
-    @RequestMapping("/admin")
-    public Admin admin() {
-	return admin;
-    }
+	/**
+	 * 自动绑定,author是读取配置文件读出的数据
+	 */
+	@Autowired
+	private Author author;
+
+	@Autowired
+	private Admin admin;
+
+	public static void main(String[] args) {
+		SpringApplication.run(PropertiesMain.class, args);
+	}
+
+	@RequestMapping("/")
+	public Author author() {
+		return author;
+	}
+
+	@RequestMapping("/admin")
+	public Admin admin() {
+		return admin;
+	}
 
 }
