@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exception.MyException;
 
+/**
+ * Exception模拟触发器
+ * @author Administrator
+ *
+ */
 @RestController
 @RequestMapping(value = "exception")
 public class ExceptionController {
@@ -15,6 +20,6 @@ public class ExceptionController {
 	}
 	@RequestMapping(value = "/02", method = RequestMethod.GET)
 	public void doSomething01() throws MyException {
-		throw new MyException();
+		throw new MyException("MyException");
 	}
 }
