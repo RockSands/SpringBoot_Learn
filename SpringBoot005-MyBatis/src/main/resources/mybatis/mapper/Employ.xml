@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xml.mapper.EmployMapper">
+
+	<resultMap id="BaseResultMap" type="com.xml.domain.Employ">
+		<id column="emp_no" property="empNo" jdbcType="INTEGER" javaType="Long" />
+		<result column="birth_date" property="birthDate" jdbcType="VARCHAR" />
+		<result column="first_name" property="firstName" jdbcType="VARCHAR" />
+		<result column="last_name" property="lastName" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="gender" property="gender" jdbcType="VARCHAR" />
+		<result column="hire_date" property="hireDate" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		emp_no, birth_date, first_name, last_name, gender, hire_date
+	</sql>
+
+	<select id="getAll" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM 
+			employees 
+		WHERE 
+			gender = #{gender} 
+			AND 
+			first_name LIKE #{firstName}
+	</select>
+
+	<select id="getOne"  parameterType="java.lang.Long" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM employees
+		WHERE emp_no = #{empNo}
+	</select>
+
+	<insert id="insert" parameterType="com.xml.domain.Employ">
+		INSERT INTO
+		employees
+		(emp_no,birth_date,first_name,last_name,gender,hire_date)
+		VALUES
+		(#{empNo}, #{birthDate},
+		#{firstName},#{lastName},#{gender},#{hireDate})
+	</insert>
+
+	<update id="update" parameterType="com.xml.domain.Employ">
+		UPDATE
+		employees
+		SET
+		<if test="firstName != null">first_name = #{firstName},</if>
+		<if test="lastName != null">last_name = #{lastName},</if>
+		emp_no = #{empNo}
+		WHERE
+		emp_no = #{empNo}
+	</update>
+
+	<delete id="delete" parameterType="java.lang.Long">
+		DELETE FROM employees WHERE
+		emp_no =#{empNo}
+	</delete>
+</mapper>

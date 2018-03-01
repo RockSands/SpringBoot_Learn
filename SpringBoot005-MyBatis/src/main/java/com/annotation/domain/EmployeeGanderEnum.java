@@ -1,4 +1,4 @@
-package com.domain;
+package com.annotation.domain;
 
 public enum EmployeeGanderEnum {
 	GENDER_M("M"), GENDER_F("F");

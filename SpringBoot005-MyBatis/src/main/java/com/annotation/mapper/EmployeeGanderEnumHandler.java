@@ -1,4 +1,4 @@
-package com.mapper;
+package com.annotation.mapper;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
-import com.domain.EmployeeGanderEnum;
+import com.annotation.domain.EmployeeGanderEnum;
 
 /**
  * 该方式适合XML配置

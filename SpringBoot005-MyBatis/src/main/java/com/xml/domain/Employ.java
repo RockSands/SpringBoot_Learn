@@ -1,4 +1,4 @@
-package com.domain;
+package com.xml.domain;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import java.util.Date;
  * @author Administrator
  *
  */
-public class Employee {
+public class Employ {
 	/**
 	 * 员工编号
 	 */
