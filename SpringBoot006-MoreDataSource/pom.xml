@@ -8,8 +8,8 @@
 		<artifactId>SpringBoot_Learn</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>SpringBoot005-MoreDataSource</artifactId>
-	<name>SpringBoot005-MoreDataSource</name>
+	<artifactId>SpringBoot006-MoreDataSource</artifactId>
+	<name>SpringBoot006-MoreDataSource</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
