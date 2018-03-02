@@ -11,10 +11,9 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.mybatis.domain.TargetEmployee;
-import com.mybatis.service.TargetEmplyeeService;
+import com.mybatis.mapper.TargetEmployeeMapper;
 
 @Configuration
 @EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class,
@@ -54,7 +53,7 @@ public class MybatisMain {
 	/**
 	 * 数据源Secondary
 	 */
-	TargetEmplyeeService targetEmployeeMapper = context.getBean(TargetEmplyeeService.class);
+	TargetEmployeeMapper targetEmployeeMapper = context.getBean(TargetEmployeeMapper.class);
 	TargetEmployee targetEmployee = new TargetEmployee();
 	targetEmployee.setBorn(new Date());
 	targetEmployee.setEmpID(1001L);

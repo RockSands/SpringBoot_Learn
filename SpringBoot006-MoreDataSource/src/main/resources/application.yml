@@ -4,6 +4,8 @@ server:
   # 访问的基础路径
   context-path: /
 spring:
+  aop:
+    auto: true
   jpa:
     hibernate:
       naming:
