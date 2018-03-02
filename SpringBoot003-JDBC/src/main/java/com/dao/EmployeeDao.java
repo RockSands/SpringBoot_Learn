@@ -2,6 +2,8 @@ package com.dao;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.domain.Employee;
 
 public interface EmployeeDao {
