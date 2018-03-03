@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 只需要接口声明,Dao会自动实现JpaRepository内部提供的功能. 开发者只需要在接口里面定义自己的方法.
@@ -50,7 +49,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSp
 	 * @return
 	 */
 	@Modifying
-	@Transactional
 	@Query(value = "UPDATE EMPLOYEES SET GENDER = :gender WHERE EMP_NO = :emp_no", nativeQuery = true)
-	public int updateEmployeeGender(@Param("gender") String gender, @Param("emp_no") String emp_no);
+	public int updateEmployeeGender(@Param("gender") String gender, @Param("emp_no") Long emp_no);
 }

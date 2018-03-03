@@ -40,5 +40,6 @@
 		<module>SpringBoot004-JPA</module>
 		<module>SpringBoot005-MyBatis</module>
 		<module>SpringBoot006-MoreDataSource</module>
+		<module>SpringBoot007-Cache</module>
 	</modules>
 </project>
