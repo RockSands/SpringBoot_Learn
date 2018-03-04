@@ -41,5 +41,6 @@
 		<module>SpringBoot005-MyBatis</module>
 		<module>SpringBoot006-MoreDataSource</module>
 		<module>SpringBoot007-Cache</module>
+		<module>SpringBoot008-RedisCache</module>
 	</modules>
 </project>
