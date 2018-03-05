@@ -12,6 +12,11 @@
 	<name>SpringBoot008-RedisCache</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+		<!-- 缓存 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
 		<!-- radis -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

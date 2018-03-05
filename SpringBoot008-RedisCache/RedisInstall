@@ -1,0 +1,33 @@
+========================参考======================
+https://www.cnblogs.com/wangchunniu1314/p/6339416.html
+https://redis.io/download
+https://www.cnblogs.com/pqchao/p/6558688.html
+
+===============安装==============
+cd /opt
+wget http://download.redis.io/releases/redis-4.0.8.tar.gz
+tar xzf redis-4.0.8.tar.gz
+mv redis-4.0.8 redis
+cd redis
+make
+cd src
+make install
+mkdir -p /usr/local/redis/bin
+mkdir -p /usr/local/redis/ect
+cp /opt/redis/redis.conf /etc/
+cd /opt/redis/src
+cp mkreleasdhdr.sh redis-benchmark redis-check-aof redis-cli redis-server /usr/local/redis/bin
+
+# 前台启动命令
+./redis-server
+
+# 配置已经后台启动
+vi /etc/redis.conf
+
+#修改为后台启动
+daemonize --> yes
+
+# 修改监听地址
+bing 127.0.0.1 <网卡IP>
+
+redis-server /etc/redis.conf
