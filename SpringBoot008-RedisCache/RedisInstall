@@ -10,13 +10,10 @@ tar xzf redis-4.0.8.tar.gz
 mv redis-4.0.8 redis
 cd redis
 make
-cd src
 make install
-mkdir -p /usr/local/redis/bin
-mkdir -p /usr/local/redis/ect
 cp /opt/redis/redis.conf /etc/
 cd /opt/redis/src
-cp mkreleasdhdr.sh redis-benchmark redis-check-aof redis-cli redis-server /usr/local/redis/bin
+cp mkreleasdhdr.sh redis-benchmark redis-check-aof redis-cli redis-server /usr/local/bin
 
 # 前台启动命令
 ./redis-server
@@ -31,3 +28,56 @@ daemonize --> yes
 bing 127.0.0.1 <网卡IP>
 
 redis-server /etc/redis.conf
+
+
+===============集群安装==============
+
+cd /opt
+wget http://download.redis.io/releases/redis-4.0.8.tar.gz
+tar xzf redis-4.0.8.tar.gz
+mv redis-4.0.8 redis
+cd redis
+make
+make install
+mkdir -p /opt/redis/clusterConfigs/
+cp /opt/redis/redis.conf /opt/redis/clusterConfigs/redis.conf
+cd /opt/redis/src
+cp mkreleasdhdr.sh redis-benchmark redis-check-aof redis-cli redis-server /usr/local/bin
+cp /opt/redis/src/redis-trib.rb /usr/local/bin/　
+
+# 前台启动命令,查看安装是否正确
+./redis-server
+
+
+cd /opt/redis/clusterConfigs/
+cp redis.conf redis_7000.conf
+cp redis.conf redis_7001.conf
+cp redis.conf redis_7002.conf
+
+# 7001 7002也相同配置
+vi redis_7000.conf
+
+port  7000
+bind 127.0.0.1 <本机IP>
+daemonize    yes
+pidfile  /var/run/redis_7000.pid
+cluster-enabled  yes
+cluster-config-file  nodes_7000.conf
+cluster-node-timeout  15000
+appendonly  yes
+appendfilename "appendonly7000.aof"
+
+# 启动服务
+redis-server /opt/redis/clusterConfigs/redis_7000.conf
+redis-server /opt/redis/clusterConfigs/redis_7002.conf
+redis-server /opt/redis/clusterConfigs/redis_7003.conf
+# 创建集群
+yum -y install ruby rubygems
+# 修正Ruby版本过低问题
+yum install centos-release-scl-rh
+yum install rh-ruby23  -y
+scl  enable  rh-ruby23 bash
+ruby -v
+# 安装集群依赖
+gem install redis
+redis-trib.rb create --replicas 1 192.168.80.138:7000 192.168.80.138:7001 192.168.80.138:7002
