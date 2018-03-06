@@ -69,8 +69,11 @@ appendfilename "appendonly7000.aof"
 
 # 启动服务
 redis-server /opt/redis/clusterConfigs/redis_7000.conf
+redis-server /opt/redis/clusterConfigs/redis_7001.conf
 redis-server /opt/redis/clusterConfigs/redis_7002.conf
 redis-server /opt/redis/clusterConfigs/redis_7003.conf
+redis-server /opt/redis/clusterConfigs/redis_7004.conf
+redis-server /opt/redis/clusterConfigs/redis_7005.conf
 # 创建集群
 yum -y install ruby rubygems
 # 修正Ruby版本过低问题
@@ -80,4 +83,4 @@ scl  enable  rh-ruby23 bash
 ruby -v
 # 安装集群依赖
 gem install redis
-redis-trib.rb create --replicas 1 192.168.80.138:7000 192.168.80.138:7001 192.168.80.138:7002
+redis-trib.rb create --replicas 1 192.168.80.138:7000 192.168.80.138:7001 192.168.80.138:7002 192.168.80.138:7003 192.168.80.138:7004 192.168.80.138:7005
