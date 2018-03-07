@@ -42,5 +42,6 @@
 		<module>SpringBoot006-MoreDataSource</module>
 		<module>SpringBoot007-Cache</module>
 		<module>SpringBoot008-RedisCache</module>
+		<module>SpringBoot009-Security</module>
 	</modules>
 </project>
