@@ -18,21 +18,22 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "s_user") // code11
 public class SysUser implements java.io.Serializable {
-
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Integer id;
+    
     @Column(name = "name", length = 120)
     private String name; // 用户名
+    
     @Column(name = "email", length = 50)
     private String email;// 用户邮箱
+    
     @Column(name = "password", length = 120)
     private String password;// 用户密码
+    
     @Temporal(TemporalType.DATE)
     @Column(name = "dob", length = 10)
     private Date dob;// 时间

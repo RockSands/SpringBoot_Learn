@@ -6,5 +6,5 @@ import com.security.entity.model.SysUser;
 
 public interface SysUserRepository extends JpaRepository<SysUser,Integer> {
 
-    SysUser findByUsername(String username);
+    SysUser findByName(String username);
 }
