@@ -14,6 +14,8 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
+import com.config.RequestMappingHandlerConfig;
+
 @SpringBootApplication
 @EnableAutoConfiguration //注意如果：MyFilterSecurityInterceptor.class
 //@EnableAutoConfiguration(exclude = MyFilterSecurityInterceptor.class) //  没有才装配，有就以个人装配为准
