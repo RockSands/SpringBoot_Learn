@@ -43,5 +43,6 @@
 		<module>SpringBoot007-Cache</module>
 		<module>SpringBoot008-RedisCache</module>
 		<module>SpringBoot009-Security</module>
+		<module>SpringBoot010-CXF</module>
 	</modules>
 </project>
