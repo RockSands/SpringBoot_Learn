@@ -1,5 +1,7 @@
 package com.config;
 
+import java.util.Properties;
+
 import javax.xml.ws.Endpoint;
 
 import org.apache.cxf.Bus;
@@ -15,8 +17,14 @@ import com.service.UserServiceImpl;
 
 @Configuration
 public class CxfConfig {
+	/**
+	 * 定义URL公用部分
+	 * @return
+	 */
 	@Bean
 	public ServletRegistrationBean dispatcherServlet() {
+		Properties properties = System.getProperties();
+		properties.put("org.apache.cxf.stax.allowInsecureParser", "1");
 		return new ServletRegistrationBean(new CXFServlet(), "/test/*");
 	}
 

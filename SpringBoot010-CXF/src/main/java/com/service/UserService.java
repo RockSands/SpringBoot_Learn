@@ -4,7 +4,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import com.domain.User;
+import com.domain.Users;
 
 @WebService
 public interface UserService {
@@ -13,6 +13,6 @@ public interface UserService {
 	String getName(@WebParam(name = "userId") String userId);
 
 	@WebMethod
-	User getUser(String userId);
+	Users getAllUser();
 
 }

@@ -1,14 +1,19 @@
 package com.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.jws.WebService;
 
 import com.domain.User;
+import com.domain.Users;
 
-@WebService(targetNamespace = "http://service.demo.paybay.cn/", endpointInterface = "com.service.UserService")
+@WebService(name = "usersService", // 暴露服务名称
+		targetNamespace = "http://service.com/", // 命名空间,一般是接口的包名倒序
+		endpointInterface = "com.service.UserService") // 接口地址
 public class UserServiceImpl implements UserService {
 
 	private Map<String, User> userMap = new HashMap<String, User>();
@@ -43,9 +48,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getUser(String userId) {
+	public Users getAllUser() {
 		System.out.println("userMap是:" + userMap);
-		return userMap.get(userId);
+		List<User> userList = new ArrayList<User>(userMap.values());
+		Users users = new Users();
+		users.setUsers(userList);
+		return users;
 	}
 
 }
