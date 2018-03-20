@@ -45,5 +45,6 @@
 		<module>SpringBoot008-RedisCache</module>
 		<module>SpringBoot009-Security</module>
 		<module>SpringBoot010-CXF</module>
+		<module>SpringBoot011-RabbitMQ</module>
 	</modules>
 </project>
