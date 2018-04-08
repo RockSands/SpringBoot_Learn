@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class Logger00 {
-	private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	public void log() {
 		logger.info("=={}.info==","logger00");
