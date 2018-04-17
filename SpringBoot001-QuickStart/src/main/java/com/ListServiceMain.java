@@ -12,7 +12,7 @@ import com.service.ServiceList;
 @RestController
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan("com.service")
+@ComponentScan({"com.properties","com.service"})
 public class ListServiceMain {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(ListServiceMain.class, args);

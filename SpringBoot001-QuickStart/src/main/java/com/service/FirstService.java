@@ -7,9 +7,9 @@ public class FirstService extends BaseService {
 
 	@Override
 	void excute() {
-		System.out.println("FirstService-->"+ d);
-		super.d = "FirstService";
-		System.out.println("FirstService-->"+ d);
+		System.out.println("FirstService-->"+ author.getName());
+		author.setName("FirstService");
+		System.out.println("FirstService-->"+ author.getName());
 	}
 
 }
