@@ -21,4 +21,6 @@ public interface EmployMapper {
 	void update(@Param("firstName") String firstName, @Param("lastName") String lastName, @Param("empNo") Long empNo);
 
 	void delete(@Param("empNo")Long empNo);
+	
+	List<Employ> getAllList();
 }

@@ -27,6 +27,13 @@
 			AND 
 			first_name LIKE #{firstName}
 	</select>
+	
+	<select id="getAllList" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM 
+			employees 
+	</select>
 
 	<select id="getOne"  parameterType="java.lang.Long" resultMap="BaseResultMap">
 		SELECT

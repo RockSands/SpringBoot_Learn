@@ -10,6 +10,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xml.domain.Employ;
 import com.xml.mapper.EmployMapper;
 
@@ -48,6 +50,24 @@ public class MyBatisXMLnMain {
 		// 删除
 		mapper.delete(1001L);
 		System.out.println("=DEL=>SUCCESS!");
+		// 翻页
+		PageHelper.startPage(1, 5);
+		employs = mapper.getAllList();
+		System.out.println("=QUERY Page 1=>" + employs.size());
+		for(Employ e : employs) {
+			System.out.println("=employ=>" + e.getFirstName() + "." + e.getLastName());
+		}
+	    PageInfo<Employ> pageInfo = new PageInfo<Employ>(employs);
+	    //打印分页信息
+	    System.out.println("数据总数：" + pageInfo.getTotal());
+	    System.out.println("数据总页数：" + pageInfo.getPages());
+		// 翻页
+		//PageHelper.startPage(2, 5);
+		employs = mapper.getAllList();
+		System.out.println("=QUERY Page 2=>" + employs.size());
+		for(Employ e : employs) {
+			System.out.println("=employ=>" + e.getFirstName() + "." + e.getLastName());
+		}
 	}
 
 }
