@@ -16,5 +16,6 @@ public class FeignClientApplication {
 		MyClient client = context.getBean(MyClient.class);
 		System.out.println("--->" + client.getClass().getName());
 		System.out.println("--->" + client.method1("33333"));
+		System.out.println("--->" + client.get1(1001L, "ckw"));
 	}
 }
