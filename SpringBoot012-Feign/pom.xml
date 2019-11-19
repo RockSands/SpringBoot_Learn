@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>SpringBoot_Learn</groupId>
+		<artifactId>SpringBoot_Learn</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>SpringBoot012-Feign</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>SpringBoot012-Feign-API</module>
+		<module>SpringBoot012-Feign-Server</module>
+		<module>SpringBoot012-Feign-Client</module>
+	</modules>
+</project>

@@ -46,5 +46,6 @@
 		<module>SpringBoot009-Security</module>
 		<module>SpringBoot010-CXF</module>
 		<module>SpringBoot011-RabbitMQ</module>
+		<module>SpringBoot012-Feign</module>
 	</modules>
 </project>
