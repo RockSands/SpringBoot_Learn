@@ -12,6 +12,7 @@ public class MyController {
 	
 	@RequestMapping(value = "/c1/m1", method = RequestMethod.GET)
 	public String method1(@RequestParam("p1") String p1) {
+		System.out.println("------>" + p1);
 		return "method1: " + p1;
 
 	}

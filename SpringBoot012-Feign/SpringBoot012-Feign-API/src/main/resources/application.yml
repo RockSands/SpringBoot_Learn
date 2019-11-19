@@ -1,0 +1,7 @@
+ribbon:
+  eureka:
+   enabled: false
+feign-api-url:
+  ribbon:
+    listOfServers: 192.168.80.138:8081,192.168.80.131:8081
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

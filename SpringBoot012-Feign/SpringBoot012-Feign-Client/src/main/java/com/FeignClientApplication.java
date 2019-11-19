@@ -14,8 +14,9 @@ public class FeignClientApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(FeignClientApplication.class, args);
 		MyClient client = context.getBean(MyClient.class);
-		System.out.println("--->" + client.getClass().getName());
-		System.out.println("--->" + client.method1("33333"));
-		System.out.println("--->" + client.get1(1001L, "ckw"));
+		for(int i=0;i<10;i++) {
+			System.out.println("--->" + client.method1("33333"));
+		}
+		//System.out.println("--->" + client.get1(1001L, "ckw"));
 	}
 }
