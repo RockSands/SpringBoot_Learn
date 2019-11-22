@@ -1,6 +1,11 @@
-ribbon:
-  eureka:
-   enabled: false
+ribbon:  http:    client:      enabled: false  okhttp:    enabled: true
+feign:
+  hystrix:
+    enabled: true
+  httpclient:
+    enabled: true
+  okhttp:
+    enabled: false
 feign-api-url:
   ribbon:
     listOfServers: 192.168.80.138:8081,192.168.80.131:8081
