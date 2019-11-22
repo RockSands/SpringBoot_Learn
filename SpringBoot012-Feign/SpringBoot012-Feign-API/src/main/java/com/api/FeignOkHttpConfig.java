@@ -23,11 +23,11 @@ import okhttp3.Response;
  * @author chenkw
  *
  */
-//@AutoConfigureBefore(FeignAutoConfiguration.class)
-//@Configuration
-//@ConditionalOnClass({ OkHttpClient.class, Feign.class })
-//@ConditionalOnMissingBean({ okhttp3.OkHttpClient.class })
-//@ConditionalOnProperty({ "feign.okhttp.enabled" })
+@AutoConfigureBefore(FeignAutoConfiguration.class)
+@Configuration
+@ConditionalOnClass({ OkHttpClient.class, Feign.class })
+@ConditionalOnMissingBean({ okhttp3.OkHttpClient.class })
+@ConditionalOnProperty({ "feign.okhttp.enabled" })
 public class FeignOkHttpConfig {
 	private int feignOkHttpReadTimeout = 60;
 	private int feignConnectTimeout = 60;
