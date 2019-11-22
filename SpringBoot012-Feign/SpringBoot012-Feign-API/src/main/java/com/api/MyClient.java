@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * 非Ribbon
  * @FeignClient(name = "api", url = "http://192.168.80.138:8081/feign/api")
  */
+@Component
 @FeignClient(value = "feign-api-url", path = "/feign/api", fallback = MyClient.MyClientFallback.class)
 public interface MyClient {
 
