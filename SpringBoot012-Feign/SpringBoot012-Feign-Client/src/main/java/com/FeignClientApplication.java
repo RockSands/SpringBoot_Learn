@@ -19,19 +19,21 @@ public class FeignClientApplication {
 		Thread.sleep(5000L);
 		MyClient client = context.getBean(MyClient.class);
 		long startTime = System.currentTimeMillis();
-		ExecutorService cachedThreadPool = Executors.newFixedThreadPool(10);
-		for (int i = 0; i < 100; i++) {
-			final int a = i;
-			cachedThreadPool.execute(new Runnable() {
+//		ExecutorService cachedThreadPool = Executors.newFixedThreadPool(10);
+//		for (int i = 0; i < 100; i++) {
+//			final int a = i;
+//			cachedThreadPool.execute(new Runnable() {
 
-				@Override
-				public void run() {
-					System.out.println("--->" + client.method1("" + a));
-				}
+//				@Override
+//				public void run() {
+					System.out.println("--->" + client.method1("aaaa"));
+					System.out.println("--->" + client.findById("bbb"));
+					System.out.println("--->" + client.get1("auth111"));
+//				}
+//
+//			});
 
-			});
-
-		}
-		System.out.println("--->" + (System.currentTimeMillis() - startTime));
+//		}
+//		System.out.println("--->" + (System.currentTimeMillis() - startTime));
 	}
 }

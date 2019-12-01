@@ -10,4 +10,14 @@ public class MyClientFallback implements MyClient {
 		return "Feign,[" + p1 + "]执行异常";
 	}
 
+	@Override
+	public String findById(String id) {
+		return "Feign,[" + id + "]执行异常";
+	}
+
+	@Override
+	public String get1(String auth) {
+		return "Feign,[" + auth + "]执行异常";
+	}
+
 }
