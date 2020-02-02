@@ -28,7 +28,11 @@ public class ConfirmSender implements RabbitTemplate.ConfirmCallback, RabbitTemp
 		try {
 			// 生产一个消息
 			rabbitTemplate.setConfirmCallback(this);
-			rabbitTemplate.convertAndSend("confirm-test.exchange", "confirm-test." + key, context);
+			rabbitTemplate.convertAndSend("confirm-test.exchange", "confirm-test." + key, context, message -> {
+				//注意这里时间要是字符串形式
+				message.getMessageProperties().setExpiration("60000");
+				return message;
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
