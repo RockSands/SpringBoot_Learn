@@ -48,5 +48,6 @@
 		<module>SpringBoot010-CXF</module>
 		<module>SpringBoot011-RabbitMQ</module>
 		<module>SpringBoot012-Feign</module>
+		<module>SpringBoot013-File</module>
 	</modules>
 </project>
