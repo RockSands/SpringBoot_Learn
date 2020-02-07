@@ -39,15 +39,23 @@ public class FileController {
 		if (file == null) {
 			throw new FileServerException("文件不存在!");
 		}
+		OutputStream outputStream = null;
 		try {
-			String encodedFileName =  URLEncoder.encode(file.getName(),"utf-8").replaceAll("\\+", "%20");;
+			String encodedFileName = URLEncoder.encode(file.getName(), "utf-8").replaceAll("\\+", "%20");
 			response.setHeader("Content-Disposition", "attachment;filename=" + encodedFileName);
-			OutputStream outputStream = response.getOutputStream();
-			response.setContentLength((int) file.length());
+			outputStream = response.getOutputStream();
 			IOUtils.copy(new FileInputStream(file), outputStream);
+			outputStream.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new FileServerException("文件下载失败!");
+		} finally {
+			if (outputStream != null) {
+				try {
+					outputStream.close();
+				} catch (IOException e) {
+				}
+			}
 		}
 	}
 
