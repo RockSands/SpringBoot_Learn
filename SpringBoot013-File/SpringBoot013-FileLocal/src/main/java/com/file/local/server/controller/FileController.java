@@ -8,8 +8,8 @@ import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,31 +40,11 @@ public class FileController {
 			throw new FileServerException("文件不存在!");
 		}
 		try {
-			// response.setContentType("application/octet-stream");
 			String encodedFileName =  URLEncoder.encode(file.getName(),"utf-8").replaceAll("\\+", "%20");;
 			response.setHeader("Content-Disposition", "attachment;filename=" + encodedFileName);
-			if (file.getName().endsWith(".xlsx")) {
-				response.setContentType(
-						"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8");
-			} else if (file.getName().endsWith(".doc")) {
-				response.setContentType("application/msword;charset=utf-8");
-			} else if (file.getName().endsWith(".ppt")) {
-				response.setContentType("application/vnd.ms-powerpoint;charset=utf-8");
-			} else if (file.getName().endsWith(".docx")) {
-				response.setContentType(
-						"application/vnd.openxmlformats-officedocument.wordprocessingml.document;charset=utf-8");
-			} else if (file.getName().endsWith(".pptx")) {
-				response.setContentType(
-						"application/vnd.openxmlformats-officedocument.presentationml.presentation;charset=utf-8");
-			} else if (file.getName().endsWith(".xls")) {
-				response.setContentType("application/vnd.ms-excel;charset=utf-8");
-			}
-			response.setHeader("Pragma", "no-cache");
-			response.setHeader("Cache-Control", "no-cache");
-			response.setDateHeader("Expires", 0);
 			OutputStream outputStream = response.getOutputStream();
 			response.setContentLength((int) file.length());
-			FileCopyUtils.copy(new FileInputStream(file), outputStream);
+			IOUtils.copy(new FileInputStream(file), outputStream);
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new FileServerException("文件下载失败!");
