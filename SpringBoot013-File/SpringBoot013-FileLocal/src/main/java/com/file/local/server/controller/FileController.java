@@ -8,13 +8,8 @@ import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,6 +43,33 @@ public class FileController {
 		try {
 			String encodedFileName = URLEncoder.encode(file.getName(), "utf-8").replaceAll("\\+", "%20");
 			response.setHeader("Content-Disposition", "attachment;filename=" + encodedFileName);
+			outputStream = response.getOutputStream();
+			IOUtils.copy(new FileInputStream(file), outputStream);
+			outputStream.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new FileServerException("文件下载失败!");
+		} finally {
+			if (outputStream != null) {
+				try {
+					outputStream.close();
+				} catch (IOException e) {
+				}
+			}
+		}
+	}
+	
+	@ApiOperation(value = "展现", notes = "展现文件", produces = "application/octet-stream")
+	@GetMapping("/show")
+	public void show(HttpServletResponse response, @RequestParam("filePath") String filePath) {
+		File file = fileService.download(filePath);
+		if (file == null) {
+			throw new FileServerException("文件不存在!");
+		}
+		OutputStream outputStream = null;
+		try {
+			String encodedFileName = URLEncoder.encode(file.getName(), "utf-8").replaceAll("\\+", "%20");
+			response.setHeader("Content-Disposition", "filename=" + encodedFileName);
 			outputStream = response.getOutputStream();
 			IOUtils.copy(new FileInputStream(file), outputStream);
 			outputStream.flush();
