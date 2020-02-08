@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.file.local.server.exception.FileServerException;
+import com.file.local.server.model.FileDeleteModel;
 import com.file.local.server.model.FileServerModel;
 import com.file.local.server.service.FileService;
 
@@ -88,9 +90,8 @@ public class FileController {
 
 	@ApiOperation(value = "删除文件", notes = "删除文件")
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public boolean removeFile(@ApiParam(value = "文件服务器存放路径") @RequestParam("filePath") String filePath,
-			@ApiParam(value = "删除标示,0:本文件,1:整个文件目录") @RequestParam("flag") int flag) {
-		return fileService.removeFile(filePath, flag);
+	public boolean removeFile(@ApiParam(value = "文件删除Json") @RequestBody FileDeleteModel model) {
+		return fileService.removeFile(model.getPath(), model.getFlag());
 	}
 
 	@ApiOperation(value = "上传文件", notes = "上传文件")
