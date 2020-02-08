@@ -66,14 +66,14 @@ public class FileServiceImpl implements FileService {
 			}
 		} else {
 			file.delete();
-			int listLength = file.getParentFile().list().length;
-			if (listLength == 0) {
-				try {
-					FileUtils.deleteDirectory(file.getParentFile());
-				} catch (IOException e) {
-					throw new FileServerException("delete fileName group error.");
-				}
-			}
+//			int listLength = file.getParentFile().list().length;
+//			if (listLength == 0) {
+//				try {
+//					FileUtils.deleteDirectory(file.getParentFile());
+//				} catch (IOException e) {
+//					throw new FileServerException("delete fileName group error.");
+//				}
+//			}
 		}
 		return true;
 	}
